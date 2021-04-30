@@ -1,5 +1,4 @@
 AllCops:
-  --cache false
   NewCops: enable
   Exclude:
     - "Guardfile"
