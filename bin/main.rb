@@ -58,6 +58,8 @@ while i < 9
 end
 
 puts "IT'S A TIE"
+puts "#{p1} You WIN!"
+puts "#{p2} You WIN!"
 
 # rubocop:enable Metrics/BlockNesting
 # rubocop:enable Style/IdenticalConditionalBranches
