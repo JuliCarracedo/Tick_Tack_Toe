@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # rubocop:disable Metrics/BlockNesting
 # rubocop:disable Style/IdenticalConditionalBranches
 
