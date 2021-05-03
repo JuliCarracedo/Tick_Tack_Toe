@@ -1,5 +1,6 @@
 # rubocop:disable Metrics/BlockNesting
 # rubocop:disable Style/IdenticalConditionalBranches
+
 puts "WELCOME TO JULIAN AND DAVID'S TIC-TAC-TOE"
 puts "Player 1, what's your name?"
 p1 = gets.chomp
