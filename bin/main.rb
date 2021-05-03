@@ -52,7 +52,7 @@ while i < 9
     puts 'Invalid move. Please use an available' unless status
     puts "Your move was #{input}" if status
   end
-  
+
   clear
 
   i += 1
