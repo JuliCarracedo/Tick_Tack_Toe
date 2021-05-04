@@ -36,16 +36,27 @@ board = Board.new
 
 players=[p1, p2]
 i=0
+outcome = false
 while i<9
     puts board.board_state
     input = false
     puts "#{players[i%2].name}, Please select your tile"
-    # while !input
-    #     input= judge.valid_move(gets.chomp ,players[i%2].token)
-    #     puts `Please select a valid tile` unless input
-    # end
-    #board.get_move(input)
+
+     while !input
+         input= judge.valid_move(gets.chomp.to_i , board.moves_made)
+         puts 'Please select a valid tile' unless input
+     end
+
+    board.get_move( players[i%2].token ,input, players[i%2])
+    
+    
+    outcome = judge.check_winner( players[i%2].moves_made)
+
+    if outcome
+        puts "Game Over! #{players[i%2].name} wins!"
+        break
+    end
+    
     i += 1
-    sleep 2
     clear
 end

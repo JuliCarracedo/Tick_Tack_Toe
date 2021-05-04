@@ -1,20 +1,16 @@
 class Board
     attr_reader :board_state
     attr_reader :moves_made
-    attr_reader :moves_made_p1
-    attr_reader :moves_made_p2
 
     @@template_arr = [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
 
     def initialize
         @moves_made = []
-        @moves_made_p1 = []
-        @moves_made_p2 = []
         @arr = @@template_arr
         @board_state =  set_board
     end
 
-    def get_move( token, move )
+    def get_move( token, move ,player)
         case move
             when 1 
                 @arr[0][0] = token
@@ -37,7 +33,7 @@ class Board
         end 
         @board_state = set_board
         @moves_made<<move
-        token == 'X' ? moves_made_p1<<move : moves_made_p2<<move
+        player.make_move (move)
     end
 
     private

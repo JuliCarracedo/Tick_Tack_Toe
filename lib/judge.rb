@@ -14,12 +14,15 @@ class Judge
     def valid_move (move, array)
         if (1..9).include? move
             if array.include? move
-                'Tile alredy used'
+                false
+
             else
-                move
+              return  move
+
             end
         else
-            'Please add a valid move'
+
+            false
         end
     end
     
