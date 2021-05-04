@@ -26,7 +26,7 @@ class Judge
     private
     def compare_custom (arr_game, arr_win)
         counter= 0
-        arr_win.each |i| do
+        arr_win.each do |i|
             counter += 1 if arr_game.include?(i)
         end
         counter == 3 ? true : false
