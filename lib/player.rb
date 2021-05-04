@@ -1,20 +1,20 @@
-class Player 
+# rubocop: disable Style/ClassVars
+class Player
+  attr_reader :name, :token, :moves_made
 
-    attr_reader :name
-    attr_reader :token
-    attr_reader :moves_made
-    @@instances = 0
+  @@instances = 0
 
-    def initialize (name)
-        return nil if @@instances > 1 
-        @moves_made= []
-        @name = name
-        @token = @@instances == 0 ? 'X' : 'O' 
-        @@instances += 1
-    end
+  def initialize(name)
+    nil if @@instances > 1
 
-    def make_move (move)
-        @moves_made << move
-    end
+    @moves_made = []
+    @name = name
+    @token = @@instances.zero? ? 'X' : 'O'
+    @@instances += 1
+  end
 
+  def make_move(move)
+    @moves_made << move
+  end
 end
+# rubocop: enable Style/ClassVars
