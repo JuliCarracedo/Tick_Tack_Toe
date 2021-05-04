@@ -6,17 +6,17 @@ class Judge
     def initialize
     end
 
-    def valid_name (valid)
-        return valid unless valid.empty?
+    def valid_name (name)
+        return name unless name.empty?
         false
     end
 
-    def valid_move (valid, array)
-        if (1..9).include? valid
-            if array.include? valid
+    def valid_move (move, array)
+        if (1..9).include? move
+            if array.include? move
                 'Tile alredy used'
             else
-                valid
+                move
             end
         else
             'Please add a valid move'
