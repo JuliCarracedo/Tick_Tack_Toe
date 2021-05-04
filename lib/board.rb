@@ -34,8 +34,6 @@ class Board
                 @arr[2][1] = token
             when 9
                 @arr[2][2] = token
-            else 
-                puts `Please select a valid input`
         end 
         @board_state = set_board
         @moves_made<<move
