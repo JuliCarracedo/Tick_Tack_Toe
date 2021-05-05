@@ -53,6 +53,7 @@ while i < 9
 
   if outcome
     puts "Game Over! #{players[i % 2].name} wins!"
+    puts board.board_state
     break
   end
 
