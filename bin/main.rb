@@ -1,22 +1,8 @@
 #!/usr/bin/env ruby
 
-def check_name
-  status = false
-  player = ''
-  while status == false
-    player = gets.chomp
-    status = true unless player.empty?
-    puts 'Please insert a valid name' unless status
-  end
-  player
-end
-
-puts 'WELCOME TO JULIAN AND DAVID\'S TIC-TAC-TOE'
-puts 'Player 1, what\'s your name?'
-p1 = check_name
-
-puts 'Player 2, what\'s your name?'
-p2 = check_name
+require_relative '../lib/board'
+require_relative '../lib/player'
+require_relative '../lib/judge'
 
 def clear
   if Gem.win_platform?
@@ -26,38 +12,59 @@ def clear
   end
 end
 
-puts "#{p1} will play Xs. #{p2} will play Os"
+judge = Judge.new
 
+puts 'Welcome to David and Julian\'s Tic Tac Toe game'
+
+puts 'Player 1, please introduce your name'
+input = false
+until input
+  input = judge.valid_name gets.chomp
+  puts 'Please add a valid name' unless input
+end
+p1 = Player.new input
+
+input = false
+puts 'Player 2, please introduce your name'
+until input
+  input = judge.valid_name gets.chomp
+  puts 'Please add a valid name' unless input
+end
+p2 = Player.new input
+
+board = Board.new
+
+players = [p1, p2]
 i = 0
-input = 0
-status = false
 
-while i < 9
-  status = false
+while i <= 9
+  puts board.board_state
+  input = false
+  puts "#{players[i % 2].name}, Please select your tile"
 
-  board = '   +---+---+---+
-    | 1 | 2 | 3 |
-    +---+---+---+
-    | 4 | 5 | 6 |
-    +---+---+---+
-    | 7 | 8 | 9 |
-    +---+---+---+'
-  puts board
-
-  puts "#{p1}. Make your move. Select an available spot in the board" if i.even?
-  puts "#{p2}. Make your move. Select an available spot in the board" unless i.even?
-  while status == false
-    input = gets.chomp
-    status = true if (1..9).include?(input.to_i)
-    puts 'Invalid move. Please use an available' unless status
-    puts "Your move was #{input}" if status
+  until input
+    input = judge.valid_move(gets.chomp.to_i, board.moves_made)
+    puts 'Please select a valid tile' unless input
   end
+
+  board.get_move(players[i % 2].token, input, players[i % 2])
+
+  outcome = judge.check_winner(players[i % 2].moves_made)
 
   clear
 
-  i += 1
-end
+  if outcome
+    puts "Game Over! #{players[i % 2].name} wins!"
+    puts board.board_state
+    break
+  end
 
-puts 'IT\'S A TIE'
-puts "#{p1} You WIN!"
-puts "#{p2} You WIN!"
+  i += 1
+
+  next unless i == 9
+
+  puts 'Draw Game, try again'
+  puts board.board_state
+  break
+
+end
