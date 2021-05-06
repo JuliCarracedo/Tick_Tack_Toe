@@ -37,7 +37,7 @@ board = Board.new
 players = [p1, p2]
 i = 0
 
-while i < 9
+while i <= 9
   puts board.board_state
   input = false
   puts "#{players[i % 2].name}, Please select your tile"
@@ -50,13 +50,21 @@ while i < 9
   board.get_move(players[i % 2].token, input, players[i % 2])
 
   outcome = judge.check_winner(players[i % 2].moves_made)
+  
+  clear
 
   if outcome
     puts "Game Over! #{players[i % 2].name} wins!"
     puts board.board_state
     break
   end
-
+  
   i += 1
-  clear
+
+  if i == 9
+    puts "Draw Game, try again"  
+    puts board.board_state
+    break
+  end
+
 end
