@@ -1,7 +1,5 @@
 # Tic Tac Toe game
 
-> One paragraph statement about the project.
-
 ![screenshot](./readme_lib/Tic-tac-toe-animated.gif)
 
 This is a simplified Tic-Tac-Toe game for two players, powered by ruby and displayed in Terminal.
