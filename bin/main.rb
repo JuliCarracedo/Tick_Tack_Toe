@@ -50,7 +50,7 @@ while i <= 9
   board.get_move(players[i % 2].token, input, players[i % 2])
 
   outcome = judge.check_winner(players[i % 2].moves_made)
-  
+
   clear
 
   if outcome
@@ -58,13 +58,13 @@ while i <= 9
     puts board.board_state
     break
   end
-  
+
   i += 1
 
-  if i == 9
-    puts "Draw Game, try again"  
-    puts board.board_state
-    break
-  end
+  next unless i == 9
+
+  puts 'Draw Game, try again'
+  puts board.board_state
+  break
 
 end
