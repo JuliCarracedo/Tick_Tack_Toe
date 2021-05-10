@@ -41,6 +41,10 @@ To get a local copy up and run the program do this steps on the console:
 - To install the required dependencies, run `bundle install`
 - To run the game, run `bin/main.rb` in the console.
 
+- In order to run RSpec:
+  - run 'gem install rspec' on your console fronm the root directory
+  - run 'rspec' to check for tests 
+
 ### Prerequisites
 - Have ruby compiler installed on your system. You can get it from [here](https://www.ruby-lang.org/es/documentation/installation/)
 
