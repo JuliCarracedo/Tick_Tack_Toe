@@ -11,10 +11,12 @@ class Player
     @name = name
     @token = @@instances.zero? ? 'X' : 'O'
     @@instances += 1
+    @@instances %= 2
   end
 
   def make_move(move)
     @moves_made << move
+    @moves_made
   end
 end
 # rubocop: enable Style/ClassVars
