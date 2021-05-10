@@ -14,4 +14,10 @@ describe Player do
       expect(judge.valid_move(-3, [2..8])).to eql(false)
     end
   end
+  describe '#check_winner' do
+    it 'returns wither a move is valid on board' do
+      expect(judge.check_winner([1, 2, 3])).to eql(true)
+      expect(judge.check_winner([9, 8, 1])).to eql(false)
+    end
+  end
 end
