@@ -11,7 +11,6 @@ describe Player do
   end
   describe '#token' do
     it "returns the player's token" do
-      p player.token, player2.token
       expect(player.token).to eql('X')
       expect(player2.token).to eql('O')
     end

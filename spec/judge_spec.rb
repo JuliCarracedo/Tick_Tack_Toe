@@ -1,6 +1,6 @@
 require_relative '../lib/judge'
 
-describe Player do
+describe Judge do
   let(:judge) { Judge.new }
   describe '#valid_name' do
     it 'returns wither a move is valid on board' do
