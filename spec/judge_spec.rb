@@ -6,7 +6,7 @@ describe Judge do
     it 'returns false if a name is empty' do
       expect(judge.valid_name('')).to eql(false)
     end
-    it 'returns the name if it\'s not empty' do  
+    it 'returns the name if it\'s not empty' do
       expect(judge.valid_name('Omar')).to eql('Omar')
     end
   end

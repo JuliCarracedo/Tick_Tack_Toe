@@ -12,10 +12,10 @@ describe Player do
     end
   end
   describe '#token' do
-    it "returns X for Player 1" do
+    it 'returns X for Player 1' do
       expect(player.token).to eql('X')
     end
-    it "returns O for Player 1" do
+    it 'returns O for Player 1' do
       expect(player.token).to eql('O')
     end
   end
@@ -40,7 +40,7 @@ describe Player do
     end
     it 'adds an element to the move list' do
       player2.make_move(4)
-      expect(player2.make_move(7)).to eql([4,7])
+      expect(player2.make_move(7)).to eql([4, 7])
     end
   end
 end
