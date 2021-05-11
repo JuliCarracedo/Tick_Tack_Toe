@@ -9,9 +9,11 @@ class Player
 
     @moves_made = []
     @name = name
-    @token = @@instances.zero? ? 'X' : 'O'
+    @token = @@instances.zero? ? 'O' : 'X'
     @@instances += 1
     @@instances %= 2
+    puts @@instances
+    puts @token
   end
 
   def make_move(move)

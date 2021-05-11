@@ -23,9 +23,12 @@ describe Board do
     end
   end
   describe '#get_move' do
-    it 'Returns the moves made' do
+    it 'Updates the moves made list' do
       board.get_move('X', 1, Player.new('Julian'))
       expect(board.moves_made).to eql([1])
+    end
+    it 'Updates the moves made list' do
+      board.get_move('X', 1, Player.new('Julian'))
       board.get_move('O', 3, Player.new('Omar'))
       expect(board.moves_made).to eql([1, 3])
     end
