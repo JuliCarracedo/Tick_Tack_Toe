@@ -14,6 +14,7 @@ class Board
     @board_state = set_board
     @moves_made << move
     player.make_move(move)
+    @moves_made
   end
 
   private
