@@ -12,12 +12,15 @@ describe Judge do
     it 'returns wither a move is valid on board' do
       expect(judge.valid_move(1, [2..8])).to eql(1)
       expect(judge.valid_move(-3, [2..8])).to eql(false)
+      expect(judge.valid_move('hello', [2..8])).to eql(false)
     end
   end
   describe '#check_winner' do
     it 'returns wither a move is valid on board' do
       expect(judge.check_winner([1, 2, 3])).to eql(true)
       expect(judge.check_winner([9, 8, 1])).to eql(false)
+      expect(judge.check_winner([1, 5, 9])).to eql(true)
+      expect(judge.check_winner([1, 4, 8])).to eql(false)
     end
   end
 end

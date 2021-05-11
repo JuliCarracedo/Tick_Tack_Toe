@@ -18,12 +18,16 @@ describe Player do
   describe '#moves_made' do
     it "returns the player's move list" do
       expect(player.moves_made).to eql([])
+      player.make_move(1)
+      expect(player.moves_made).to eql([1])
     end
   end
   describe '#make_move' do
     it 'adds an element to the move list' do
-      expect(player.make_move(1)).to eql([1])
-      expect(player.make_move(3)).to eql([1, 3])
+      expect(player.make_move(3)).to eql([3])
+      expect(player2.make_move(3)).to eql([3])
+      expect(player2.make_move(4)).to eql([3, 4])
+      expect(player2.make_move(7)).to eql([3, 4, 7])
     end
   end
 end
